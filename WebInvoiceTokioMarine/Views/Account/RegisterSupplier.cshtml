@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "RegisterSupplier";
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("RegisterSupplier", "Account", FormMethod.Post, new { @class = "myform", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Partial("_RegisterCustomerOrSupply")
+    }
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
+
+
+
+

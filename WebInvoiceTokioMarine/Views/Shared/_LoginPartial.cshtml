@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline my-2 my-lg-0" }))
+    {
+        @Html.AntiForgeryToken()
+
+<li class="nav-item">
+    @Html.ActionLink("" + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+
+</li>
+
+            }
+        }
+        else
+        {
+    <li class="nav-item dropdown">
+        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign In
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+            <a class="dropdown-item " href="@Url.Action("Login","Account")">Log in</a>
+            <a class="dropdown-item" href="@Url.Action("RegisterCustomer","Account")">Register as Customer</a>
+            <a class="dropdown-item" href="@Url.Action("RegisterSupplier","Account")">Register as Supplier</a>
+
+
+          
+        </div>
+    </li>
+
+
+
+}

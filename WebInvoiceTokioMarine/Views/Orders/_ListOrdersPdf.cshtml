@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebInvoiceTokioMarine.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <table class="table table-hover table-striped table-bordered">
+        <tr>
+            <th>
+                Invoice No
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalOrder)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalOrder)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+
+</body>
+</html>

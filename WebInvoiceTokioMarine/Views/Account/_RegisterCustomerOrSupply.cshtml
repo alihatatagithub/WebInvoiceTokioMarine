@@ -1,0 +1,67 @@
+﻿@model WebInvoiceTokioMarine.Models.ViewModels.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<section class="contact_section layout_padding">
+    <div class="container contact_heading">
+        <a href="@Url.Action("Index","Home")" class="btn btn-primary">Home</a>
+        <a href="@Url.Action("RegisterCustomer","Account")" class="btn btn-light">Register as Customer</a>
+        <a href="@Url.Action("RegisterSupplier","Account")" class="btn btn-light">Register as Supplier</a>
+        <a href="@Url.Action("Login","Account")" class="btn btn-light">Login</a>
+
+        <h2>
+            Register now
+        </h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+    <div class="container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="">Register</button>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}

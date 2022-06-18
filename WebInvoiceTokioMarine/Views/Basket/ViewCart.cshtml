@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebInvoiceTokioMarine.Models.ViewModels.AddToCartGetViewModel>
+
+@{
+    ViewBag.Title = "ViewCart";
+}
+@if (Model.Count() > 0)
+{
+    using (Html.BeginForm("Confirm", "Basket", FormMethod.Post, new { id = "confirmOrder" }))
+    {
+        @Html.AntiForgeryToken()
+        <a class="mybutton" href="javascript:document.getElementById('confirmOrder').submit()">Confirm</a>
+
+
+    }
+}
+else 
+{ 
+    <button class="mybutton" disabled>Confirm</button>
+}
+<section class="service_section">
+    <div class="container">
+        <div class="custom_heading-container">
+            <h2>
+                My Basket
+            </h2>
+        </div>
+        <div class="service_container layout_padding2" style="background-color: #f5f5f5">
+            @foreach (var item in Model)
+            {
+                <div class="service_box">
+                    <div class="img-box">
+                        <img src="~/AppFiles/Products/@item.PictureUrl" height="350" width="400" alt="" />
+
+                    </div>
+                    <div class="detail-box">
+                        <h4>
+                            @item.ProductName <br />
+                            @item.Price $<br />
+                            @item.Qty <br />
+                            Total : @item.Total $
+                        </h4>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</section>
+

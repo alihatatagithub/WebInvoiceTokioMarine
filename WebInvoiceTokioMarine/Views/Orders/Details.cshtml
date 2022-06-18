@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebInvoiceTokioMarine.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<table class="table table-hover table-striped table-bordered">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Product.Price)
+        </td>
+             <td>
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+  
+
+    </tr>
+}
+
+</table>
+
+
+<div class="container" style="background-color: #f0f2f5;color:black ">
+    Total Invioce : @Model.FirstOrDefault().Order.TotalOrder
+</div>
